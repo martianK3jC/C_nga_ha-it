@@ -1,0 +1,14 @@
+C:\Users\roger\source\repos\CSharpPrac\CSharpPrac\bin\Debug\net8.0\CSharpPrac.exe
+C:\Users\roger\source\repos\CSharpPrac\CSharpPrac\bin\Debug\net8.0\CSharpPrac.deps.json
+C:\Users\roger\source\repos\CSharpPrac\CSharpPrac\bin\Debug\net8.0\CSharpPrac.runtimeconfig.json
+C:\Users\roger\source\repos\CSharpPrac\CSharpPrac\bin\Debug\net8.0\CSharpPrac.dll
+C:\Users\roger\source\repos\CSharpPrac\CSharpPrac\bin\Debug\net8.0\CSharpPrac.pdb
+C:\Users\roger\source\repos\CSharpPrac\CSharpPrac\obj\Debug\net8.0\CSharpPrac.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\roger\source\repos\CSharpPrac\CSharpPrac\obj\Debug\net8.0\CSharpPrac.AssemblyInfoInputs.cache
+C:\Users\roger\source\repos\CSharpPrac\CSharpPrac\obj\Debug\net8.0\CSharpPrac.AssemblyInfo.cs
+C:\Users\roger\source\repos\CSharpPrac\CSharpPrac\obj\Debug\net8.0\CSharpPrac.csproj.CoreCompileInputs.cache
+C:\Users\roger\source\repos\CSharpPrac\CSharpPrac\obj\Debug\net8.0\CSharpPrac.dll
+C:\Users\roger\source\repos\CSharpPrac\CSharpPrac\obj\Debug\net8.0\refint\CSharpPrac.dll
+C:\Users\roger\source\repos\CSharpPrac\CSharpPrac\obj\Debug\net8.0\CSharpPrac.pdb
+C:\Users\roger\source\repos\CSharpPrac\CSharpPrac\obj\Debug\net8.0\CSharpPrac.genruntimeconfig.cache
+C:\Users\roger\source\repos\CSharpPrac\CSharpPrac\obj\Debug\net8.0\ref\CSharpPrac.dll
