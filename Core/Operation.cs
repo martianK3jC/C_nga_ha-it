@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CSharpPrac.Core;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CSharpPrac
 {
-    public abstract class Operation
+    public abstract class Operation : IOperation
     {
         public abstract double Execute(double a, double b);
 
@@ -16,5 +17,7 @@ namespace CSharpPrac
         {
             Console.WriteLine($"Result: {result}");
         }
+
+        
     }
 }

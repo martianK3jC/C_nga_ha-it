@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CSharpPrac
+namespace CSharpPrac.Core
 {
-    public class Power : Operation
+    public interface IOperation
     {
-        public override double Execute(double a, double b) => Math.Pow(a, b);
+        double Execute(double a, double b);
     }
 }

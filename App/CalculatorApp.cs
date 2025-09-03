@@ -3,8 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CSharpPrac.Core;
+using CSharpPrac.Operations;
+using CSharpPrac.Scientific;
 
-namespace CSharpPrac
+namespace CSharpPrac.App
 {
     public class CalculatorApp
     {
@@ -20,15 +23,35 @@ namespace CSharpPrac
 
         static void Main()
         {
-            //Calculator calc = new Calculator();
-            //ScientificCalculator calc = new ScientificCalculator();
 
-            //a much more optimized version. ONE object, has base + scientific methods
-            ScientificCalculator calc = new ScientificCalculator();
+            //Refined version: Naa nay Dictionary for operations
+            //lazy creation of objects using Func<T>
+            //Dictionary syntax: Dictionary<keyType, valueType> dictName = new Dictionary<keyType, valueType>();
+            #region Select Operation
+            Dictionary<string, Func<IOperation>> operations = new Dictionary<string, Func<IOperation>>
+            {
+                //Using the Func<T>, the values must be lambdas. WHy? because its a function delegate
+                //{Tkey, () => new Tvalue()}
+                { "+", () => new Addition() },
+                { "-", () => new Subtraction() },
+                { "*", () => new Multiplication() },
+                { "/", () => new Division() },
+                { "^", () => new Power() },
+                { "%", () => new Modulus() },
+                { "s", () => new Sine() },
+                { "c", () => new Cosine() },
+                { "t", () => new Tangent() },
+                { "l", () => new Logarithm() },
+                { "sqrt", () => new SquareRoot() }
+            };
+            #endregion
+            //the usage of this would be: 
+            //IOperation op = operations[operation](); // note the ()
+            //double result = op.Execute(num1, num2);
 
             while (true)
             {
-                //input first number
+                #region Input Validation for Numbers
                 while (true)
                 {
                     Console.Write("Enter a number: ");
@@ -45,19 +68,20 @@ namespace CSharpPrac
                     ////Solution: via exception handling
                     //try
                     //{
-                        setNum1(Convert.ToDouble(input));
-                        break;
+                    setNum1(Convert.ToDouble(input));
+                    break;
                     //} catch(FormatException e)
                     //{
                     //    Console.WriteLine("Invalid input! Please enter a number.");
                     //}
                 }
 
+
                 //Determine if second number is needed
                 Console.WriteLine("Select operation (+, -, *, /, ^, %, s, c, t, l, sqrt):");
                 string operation = Console.ReadLine();
-                
-                if(operation.Equals("+") || operation.Equals("-") || operation.Equals("*") || operation.Equals("/") || operation.Equals("^") || operation.Equals("%"))
+
+                if (operation.Equals("+") || operation.Equals("-") || operation.Equals("*") || operation.Equals("/") || operation.Equals("^") || operation.Equals("%"))
                 {
                     while (true)
                     {
@@ -74,13 +98,48 @@ namespace CSharpPrac
                         }
                     }
                 }
+                #endregion
+
+                #region Perform Operations
+                //to know if operation exists in Dictionary:
+                if (operations.ContainsKey(operation))
+                {
+                    Operation op = (Operation)operations[operation](); //Casting to operation becausee operations[operation]() is an IOperation object. we cast it aron maka gamit ta sa Display method ni Operation class
+                    double result = op.Execute(num1, num2);
+                    op.Display(result);
+                }
+                #endregion
+
+                Console.WriteLine("Do you want to continue? (y/n)");
+                if (Console.ReadLine().ToLower() != "y")
+                {
+                    break;
+                }
+
+            }
+
+
+
+
+
+            #region Some Notes
+            /*
+            //Calculator calc = new Calculator();
+            //ScientificCalculator calc = new ScientificCalculator();
+
+            //a much more optimized version. ONE object, has base + scientific methods
+            ScientificCalculator calc = new ScientificCalculator();
+
+
+
+
 
 
                 //Perform operation
                 try
                 {
                     double result = 0;
-                    
+
                     switch (operation)
                     {
                         case "+": result = calc.Add(getNum1(), getNum2()); break;
@@ -108,14 +167,10 @@ namespace CSharpPrac
                     return;
                 }
 
-                Console.WriteLine("Do you want to continue? (y/n)");
-                if (Console.ReadLine().ToLower() != "y")
-                {
-                    break;
-                }
-            }
-            
 
+            }
+            */
+            #endregion
         }
     }
 }

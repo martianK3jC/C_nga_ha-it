@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CSharpPrac
+namespace CSharpPrac.Scientific
 {
     public class Logarithm : Operation
     {
@@ -16,5 +16,7 @@ namespace CSharpPrac
             }
             return Math.Log(b, a); // Logarithm of b with base a
         }
+
+        
     }
 }

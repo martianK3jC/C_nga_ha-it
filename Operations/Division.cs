@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CSharpPrac
+namespace CSharpPrac.Operations
 {
-    public class Modulus : Operation
+    public class Division : Operation
     {
         public override double Execute(double a, double b)
         {
@@ -14,7 +14,7 @@ namespace CSharpPrac
             {
                 throw new DivideByZeroException("Denominator cannot be zero.");
             }
-            return a % b;
+            return a / b;
         }
     }
 }
